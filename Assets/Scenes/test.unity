@@ -111,7 +111,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 3
+  m_Radius: 2
   m_Height: 20
   m_Direction: 1
   m_Center: {x: 0, y: 6, z: 0}
@@ -416,7 +416,7 @@ GameObject:
   - 54: {fileID: 891491164}
   m_Layer: 0
   m_Name: Taya
-  m_TagString: Untagged
+  m_TagString: Taya
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -536,7 +536,7 @@ GameObject:
   - 114: {fileID: 1371924908}
   m_Layer: 0
   m_Name: Tiko
-  m_TagString: Untagged
+  m_TagString: Tico
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -702,6 +702,14 @@ Prefab:
     - target: {fileID: 158824, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 158824, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
+      propertyPath: m_TagString
+      value: Taya
+      objectReference: {fileID: 0}
+    - target: {fileID: 158832, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
+      propertyPath: m_TagString
+      value: Tico
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}

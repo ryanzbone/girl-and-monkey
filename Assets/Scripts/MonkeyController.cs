@@ -32,7 +32,7 @@ public class MonkeyController : MonoBehaviour {
         RaycastHit hitInfo;
         if (Physics.Raycast(transform.position, Vector3.down, out hitInfo, transform.localScale.y/2))
         {
-            if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+            if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Terrain") || hitInfo.transform.tag == "Taya")
                 rigidbody.AddForce(jumpForce);
         }
     }
