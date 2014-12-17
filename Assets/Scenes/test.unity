@@ -74,6 +74,47 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
+--- !u!1 &14955200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 14955201}
+  - 136: {fileID: 14955202}
+  m_Layer: 0
+  m_Name: MountCollider
+  m_TagString: MountCollider
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &14955201
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 14955200}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 891491163}
+  m_RootOrder: 1
+--- !u!136 &14955202
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 14955200}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 3
+  m_Height: 20
+  m_Direction: 1
+  m_Center: {x: 0, y: 6, z: 0}
 --- !u!1 &447427800
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,11 +194,74 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 447427800}
   m_LocalRotation: {x: .288652718, y: 0, z: 0, w: .957433879}
-  m_LocalPosition: {x: -.670000017, y: 4.67999983, z: -7.8499999}
+  m_LocalPosition: {x: -.670000017, y: 11.1999998, z: -15.3000002}
   m_LocalScale: {x: 1, y: 1, z: 1.00000012}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
+--- !u!1 &777117236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 777117238}
+  - 108: {fileID: 777117237}
+  m_Layer: 0
+  m_Name: Directional light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &777117237
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 777117236}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: .400000006
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
+--- !u!4 &777117238
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 777117236}
+  m_LocalRotation: {x: .408217937, y: -.234569728, z: .109381661, w: .875426114}
+  m_LocalPosition: {x: -.0905205905, y: .822878361, z: .0845357478}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
 --- !u!1 &779082817
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +331,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &842277955
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +357,7 @@ Transform:
   m_PrefabInternal: {fileID: 1751314998}
   m_GameObject: {fileID: 842277955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .5, z: -3.11999989}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children: []
   m_Father: {fileID: 1371924906}
@@ -311,7 +415,7 @@ GameObject:
   - 4: {fileID: 891491163}
   - 54: {fileID: 891491164}
   m_Layer: 0
-  m_Name: Girl
+  m_Name: Taya
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -328,6 +432,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1244636299}
+  - {fileID: 14955201}
   m_Father: {fileID: 1713356229}
   m_RootOrder: 0
 --- !u!54 &891491164
@@ -346,69 +451,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!1 &1203384909
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1203384911}
-  - 108: {fileID: 1203384910}
-  m_Layer: 0
-  m_Name: Point light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!108 &1203384910
-Light:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1203384909}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_Strength: 1
-    m_Bias: .0500000007
-    m_Softness: 4
-    m_SoftnessFade: 1
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_ActuallyLightmapped: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 1
-  m_ShadowSamples: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
-  m_IndirectIntensity: 1
-  m_AreaSize: {x: 1, y: 1}
---- !u!4 &1203384911
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1203384909}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.87, y: 3.8499999, z: -.449999988}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
 --- !u!1 &1244636298
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,8 +533,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1371924906}
   - 54: {fileID: 1371924907}
+  - 114: {fileID: 1371924908}
   m_Layer: 0
-  m_Name: Monkey
+  m_Name: Tiko
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -505,7 +548,7 @@ Transform:
   m_PrefabInternal: {fileID: 1751314998}
   m_GameObject: {fileID: 1371924905}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 842277956}
@@ -527,6 +570,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1371924908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1371924905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 467d9133a8a12fa478867085d01a277f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inMountZone: 0
 --- !u!1 &1713356227
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,10 +609,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad70c986b9b8004baf314b9871a9b52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  girl: {fileID: 0}
-  monkey: {fileID: 0}
+  taya: {fileID: 0}
+  tiko: {fileID: 0}
   currentlyControlled: {fileID: 0}
-  monkeyOffset: {x: 2, y: 0, z: 2}
+  together: 0
 --- !u!4 &1713356229
 Transform:
   m_ObjectHideFlags: 0
@@ -565,7 +620,7 @@ Transform:
   m_PrefabInternal: {fileID: 1751314998}
   m_GameObject: {fileID: 1713356227}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.30999994, y: 2.0999999, z: 1.80999994}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 891491163}
@@ -581,15 +636,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 458830, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.30999994
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 458830, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.0999999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 458830, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 1.80999994
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 458830, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
       propertyPath: m_LocalRotation.x
@@ -618,6 +673,30 @@ Prefab:
     - target: {fileID: 5458832, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
       propertyPath: m_Constraints
       value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 458828, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458828, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 158824, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
+      propertyPath: m_Name
+      value: Taya
+      objectReference: {fileID: 0}
+    - target: {fileID: 158832, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
+      propertyPath: m_Name
+      value: Tiko
+      objectReference: {fileID: 0}
+    - target: {fileID: 458832, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 458824, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
