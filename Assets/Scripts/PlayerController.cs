@@ -1,49 +1,63 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
-    public GameObject girl, monkey, currentlyControlled;
-    public Vector3 monkeyOffset = new Vector3(2, 0, 2);
+    public GameObject taya, tiko, currentlyControlled;
+    public bool together;
 
-	// Use this for initialization
-	void Start () {
-        girl = transform.Find("Girl").gameObject;
-        monkey = transform.Find("Monkey").gameObject;
-        currentlyControlled = girl;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        Vector3 oldPosition = currentlyControlled.transform.position;
-        if (Input.GetKeyDown(KeyCode.Return))
+    // Use this for initialization
+    void Start()
+    {
+        taya = transform.Find("Taya").gameObject;
+        tiko = transform.Find("Tiko").gameObject;
+        currentlyControlled = taya;
+        together = true;
+    }
+
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetButtonDown("Mount") && together)
         {
-            currentlyControlled = (currentlyControlled == girl) ? monkey : girl;
+            together = false;
+            currentlyControlled = tiko;
         }
-        if (Input.GetKey(KeyCode.UpArrow))
+        else if (Input.GetButtonDown("Mount") && !together && tiko.GetComponent<MonkeyController>().InMountZone)
+        {
+            together = true;
+            currentlyControlled = taya;
+        }
+        if (Input.GetButtonDown("SwapControl") && !together)
+        {
+            currentlyControlled = (currentlyControlled == taya) ? tiko : taya;
+        }
+
+        Vector3 oldPosition = currentlyControlled.transform.position;
+
+        if (Input.GetAxis("Horizontal") > 0.8f)
         {
             currentlyControlled.transform.position = new Vector3(oldPosition.x + 0.2f, oldPosition.y, oldPosition.z);
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetAxis("Horizontal") < -0.8f)
         {
             currentlyControlled.transform.position = new Vector3(oldPosition.x - 0.2f, oldPosition.y, oldPosition.z);
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetAxis("Vertical") > 0.8f)
         {
             currentlyControlled.transform.position = new Vector3(oldPosition.x, oldPosition.y, oldPosition.z + 0.2f);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetAxis("Vertical") < -0.8f)
         {
             currentlyControlled.transform.position = new Vector3(oldPosition.x, oldPosition.y, oldPosition.z - 0.2f);
         }
-        if (currentlyControlled == girl)
-        {
-            MonkeyFollows();
-        }
-	}
 
-    void MonkeyFollows()
-    {
-        monkey.transform.position = girl.transform.position + monkeyOffset;
+        if (together)
+        {
+            tiko.transform.position = new Vector3(taya.transform.position.x, 2.5f, taya.transform.position.z);
+        }
     }
 }
