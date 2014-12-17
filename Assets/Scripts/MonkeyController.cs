@@ -4,6 +4,7 @@ using System.Collections;
 public class MonkeyController : MonoBehaviour {
 
     public bool inMountZone;
+    public Vector3 jumpForce = new Vector3(0, 375f, 0);
     public bool InMountZone { get { return inMountZone; } }
 	// Use this for initialization
 	void Start () {
@@ -24,5 +25,15 @@ public class MonkeyController : MonoBehaviour {
     {
         if (inMountZone && other.tag == "MountCollider")
             inMountZone = false;
+    }
+
+    public void Jump()
+    {
+        RaycastHit hitInfo;
+        if (Physics.Raycast(transform.position, Vector3.down, out hitInfo, transform.localScale.y/2))
+        {
+            if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+                rigidbody.AddForce(jumpForce);
+        }
     }
 }
