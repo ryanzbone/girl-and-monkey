@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject taya, tiko, currentlyControlled;
     public bool together;
+    float  xPosition, zPosition, moveDiff = 0.1f;
+    Vector3 oldPosition;
 
     // Use this for initialization
     void Start()
@@ -36,28 +38,35 @@ public class PlayerController : MonoBehaviour
             currentlyControlled = (currentlyControlled == taya) ? tiko : taya;
         }
 
-        Vector3 oldPosition = currentlyControlled.transform.position;
+        oldPosition = currentlyControlled.transform.position;
+        xPosition = oldPosition.x;
+        zPosition = oldPosition.z;
 
         if (Input.GetAxis("Horizontal") > 0.8f)
         {
-            currentlyControlled.transform.position = new Vector3(oldPosition.x + 0.2f, oldPosition.y, oldPosition.z);
+            xPosition += moveDiff;
         }
         if (Input.GetAxis("Horizontal") < -0.8f)
         {
-            currentlyControlled.transform.position = new Vector3(oldPosition.x - 0.2f, oldPosition.y, oldPosition.z);
+            xPosition -= moveDiff;
         }
         if (Input.GetAxis("Vertical") > 0.8f)
         {
-            currentlyControlled.transform.position = new Vector3(oldPosition.x, oldPosition.y, oldPosition.z + 0.2f);
+            zPosition += moveDiff;
         }
         if (Input.GetAxis("Vertical") < -0.8f)
         {
-            currentlyControlled.transform.position = new Vector3(oldPosition.x, oldPosition.y, oldPosition.z - 0.2f);
+            zPosition -= moveDiff;
         }
+        currentlyControlled.transform.position = new Vector3(xPosition, oldPosition.y, zPosition);
 
         if (together)
         {
-            tiko.transform.position = new Vector3(taya.transform.position.x, 2.5f, taya.transform.position.z);
+            tiko.transform.position = new Vector3(taya.transform.position.x, 2.6f, taya.transform.position.z);
+        }
+        if (Input.GetButtonDown("Jump") && currentlyControlled == tiko)
+        {
+            tiko.GetComponent<MonkeyController>().Jump();
         }
     }
 }
