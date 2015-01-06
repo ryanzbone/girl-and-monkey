@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public bool together;
     float  xPosition, zPosition, moveDiff = 0.1f;
     Vector3 oldPosition;
+    public GameObject camera;
 
     // Use this for initialization
     void Start()
@@ -18,8 +19,6 @@ public class PlayerController : MonoBehaviour
         together = true;
     }
 
-
-
     // Update is called once per frame
     void Update()
     {
@@ -27,15 +26,18 @@ public class PlayerController : MonoBehaviour
         {
             together = false;
             currentlyControlled = tiko;
+            camera.GetComponent<CameraController>().ChangeCharacters();
         }
         else if (Input.GetButtonDown("Mount") && !together && tiko.GetComponent<MonkeyController>().InMountZone)
         {
             together = true;
             currentlyControlled = taya;
+            camera.GetComponent<CameraController>().ChangeCharacters();
         }
         if (Input.GetButtonDown("SwapControl") && !together)
         {
             currentlyControlled = (currentlyControlled == taya) ? tiko : taya;
+            camera.GetComponent<CameraController>().ChangeCharacters();
         }
 
         oldPosition = currentlyControlled.transform.position;

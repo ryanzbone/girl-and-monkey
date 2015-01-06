@@ -128,6 +128,7 @@ GameObject:
   - 124: {fileID: 447427803}
   - 92: {fileID: 447427802}
   - 81: {fileID: 447427801}
+  - 114: {fileID: 447427806}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -198,8 +199,21 @@ Transform:
   m_LocalPosition: {x: -.670000017, y: 11.1999998, z: -15.3000002}
   m_LocalScale: {x: 1, y: 1, z: 1.00000012}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 1713356229}
+  m_RootOrder: 0
+--- !u!114 &447427806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 447427800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e686648ae43224faf6ff5aa1edceed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tayaHook: {fileID: 1042667374}
+  tikoHook: {fileID: 2040151386}
 --- !u!1 &777117236
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +276,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &779082817
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +307,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 136435692d3f23d4b821d6dea9b5712d, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -332,7 +346,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &842277955
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +450,7 @@ Transform:
   - {fileID: 14955201}
   - {fileID: 1042667375}
   m_Father: {fileID: 1713356229}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!54 &891491164
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -475,7 +489,7 @@ Transform:
   m_PrefabInternal: {fileID: 1094268102}
   m_GameObject: {fileID: 1042667374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: -14}
+  m_LocalPosition: {x: 0, y: 7, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 891491163}
@@ -518,6 +532,22 @@ Prefab:
     - target: {fileID: 458830, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458824, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 458832, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11414394, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 447427800}
+    - target: {fileID: 414394, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62bf0cc6629db0f43bcedb91e0fe7078, type: 2}
@@ -627,7 +657,7 @@ Transform:
   - {fileID: 842277956}
   - {fileID: 2040151387}
   m_Father: {fileID: 1713356229}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!54 &1371924907
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -690,6 +720,7 @@ MonoBehaviour:
   tiko: {fileID: 0}
   currentlyControlled: {fileID: 0}
   together: 0
+  camera: {fileID: 447427800}
 --- !u!4 &1713356229
 Transform:
   m_ObjectHideFlags: 0
@@ -700,6 +731,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 447427805}
   - {fileID: 891491163}
   - {fileID: 1371924906}
   m_Father: {fileID: 0}
