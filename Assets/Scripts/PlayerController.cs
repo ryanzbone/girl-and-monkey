@@ -8,11 +8,12 @@ public class PlayerController : MonoBehaviour
     public bool together;
     float  xPosition, zPosition, moveDiff = 0.1f;
     Vector3 oldPosition;
-    public GameObject camera;
+    CameraController cameraController;
 
     // Use this for initialization
     void Start()
     {
+        cameraController = transform.Find("Taya/CameraHook/Camera").GetComponent<CameraController>();
         taya = transform.Find("Taya").gameObject;
         tiko = transform.Find("Tiko").gameObject;
         currentlyControlled = taya;
@@ -26,18 +27,18 @@ public class PlayerController : MonoBehaviour
         {
             together = false;
             currentlyControlled = tiko;
-            camera.GetComponent<CameraController>().ChangeCharacters();
+            cameraController.ChangeCharacters();
         }
         else if (Input.GetButtonDown("Mount") && !together && tiko.GetComponent<MonkeyController>().InMountZone)
         {
             together = true;
             currentlyControlled = taya;
-            camera.GetComponent<CameraController>().ChangeCharacters();
+            cameraController.ChangeCharacters();
         }
         if (Input.GetButtonDown("SwapControl") && !together)
         {
             currentlyControlled = (currentlyControlled == taya) ? tiko : taya;
-            camera.GetComponent<CameraController>().ChangeCharacters();
+            cameraController.ChangeCharacters();
         }
 
         oldPosition = currentlyControlled.transform.position;
