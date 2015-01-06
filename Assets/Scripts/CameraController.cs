@@ -3,28 +3,25 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour {
 
-    public GameObject tayaHook, tikoHook;
-    bool changing;
+    Transform tayaHook, tikoHook;
 
 	void Start () {
-        transform.parent = tayaHook.transform;
+        tayaHook = transform.parent.Find("Taya/CameraHook");
+        tikoHook = transform.parent.Find("Tiko/CameraHook");
+        transform.parent = tayaHook;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
     public void ChangeCharacters()
     {
-        if (transform.parent == tayaHook.transform)
+        if (transform.parent == tayaHook)
         {
-            transform.parent = tikoHook.transform;
-            transform.position = tikoHook.transform.position;
+            transform.parent = tikoHook;
+            transform.position = tikoHook.position;
         }
         else
         {
-            transform.parent = tayaHook.transform;
-            transform.position = tayaHook.transform.position;
+            transform.parent = tayaHook;
+            transform.position = tayaHook.position;
         }
     }
 }
