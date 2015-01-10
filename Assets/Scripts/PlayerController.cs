@@ -3,7 +3,6 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-
     public GameObject taya, tiko, currentlyControlled;
     public bool together;
     float  xPosition, zPosition, moveDiff = 0.1f;
@@ -23,13 +22,27 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Grab") && currentlyControlled == taya)
+        if (currentlyControlled == taya)
         {
-           taya.GetComponent<TayaController>().Grab();
+            if (Input.GetButtonDown("Grab"))
+            {
+                taya.GetComponent<TayaController>().Grab();
+            }
+            if (Input.GetButtonUp("Grab"))
+            {
+                taya.GetComponent<TayaController>().Release();
+            }
         }
-        if (Input.GetButtonUp("Grab") && currentlyControlled == taya)
+        if (currentlyControlled == tiko)
         {
-            taya.GetComponent<TayaController>().Release();
+            if (Input.GetButtonDown("Grab"))
+            {
+                tiko.GetComponent<MonkeyController>().Grab();
+            }
+            if (Input.GetButtonUp("Grab"))
+            {
+                tiko.GetComponent<MonkeyController>().Release();
+            }
         }
 
         if (Input.GetButtonDown("Mount") && together)
@@ -55,31 +68,38 @@ public class PlayerController : MonoBehaviour
 
     private void Movement()
     {
-        oldPosition = currentlyControlled.transform.position;
-        xPosition = oldPosition.x;
-        zPosition = oldPosition.z;
+        if (currentlyControlled == taya)
+        {
+            oldPosition = currentlyControlled.transform.position;
+            xPosition = oldPosition.x;
+            zPosition = oldPosition.z;
 
-        if (Input.GetAxis("Horizontal") > 0.8f)
-        {
-            xPosition += moveDiff;
-        }
-        if (Input.GetAxis("Horizontal") < -0.8f)
-        {
-            xPosition -= moveDiff;
-        }
-        if (Input.GetAxis("Vertical") > 0.8f)
-        {
-            zPosition += moveDiff;
-        }
-        if (Input.GetAxis("Vertical") < -0.8f)
-        {
-            zPosition -= moveDiff;
-        }
-        currentlyControlled.transform.position = new Vector3(xPosition, oldPosition.y, zPosition);
+            if (Input.GetAxis("Horizontal") > 0.8f)
+            {
+                xPosition += moveDiff;
+            }
+            if (Input.GetAxis("Horizontal") < -0.8f)
+            {
+                xPosition -= moveDiff;
+            }
+            if (Input.GetAxis("Vertical") > 0.8f)
+            {
+                zPosition += moveDiff;
+            }
+            if (Input.GetAxis("Vertical") < -0.8f)
+            {
+                zPosition -= moveDiff;
+            }
+            currentlyControlled.transform.position = new Vector3(xPosition, oldPosition.y, zPosition);
 
-        if (together)
+            if (together)
+            {
+                tiko.transform.position = new Vector3(taya.transform.position.x, 2.6f, taya.transform.position.z);
+            }
+        }
+        else
         {
-            tiko.transform.position = new Vector3(taya.transform.position.x, 2.6f, taya.transform.position.z);
+            tiko.GetComponent<MonkeyController>().Movement(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         }
         if (Input.GetButtonDown("Jump") && currentlyControlled == tiko)
         {
