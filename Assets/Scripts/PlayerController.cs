@@ -23,6 +23,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButtonDown("Grab") && currentlyControlled == taya)
+        {
+           taya.GetComponent<TayaController>().Grab();
+        }
+        if (Input.GetButtonUp("Grab") && currentlyControlled == taya)
+        {
+            taya.GetComponent<TayaController>().Release();
+        }
+
         if (Input.GetButtonDown("Mount") && together)
         {
             together = false;
@@ -41,6 +50,11 @@ public class PlayerController : MonoBehaviour
             cameraController.ChangeCharacters();
         }
 
+        Movement();
+    }
+
+    private void Movement()
+    {
         oldPosition = currentlyControlled.transform.position;
         xPosition = oldPosition.x;
         zPosition = oldPosition.z;
